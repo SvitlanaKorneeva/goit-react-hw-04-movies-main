@@ -1,0 +1,9 @@
+.actorsList {
+  display: flex;
+  list-style: none;
+  margin-right: 10px;
+  flex-wrap: wrap;
+}
+.actorsItem {
+  width: 110px;
+}

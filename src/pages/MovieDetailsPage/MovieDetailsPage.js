@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import s from "./MovieDetailsPage.module.css";
 import Axios from 'axios';
 import Cast from '../../components/Cast/Cast';
+import Reviews from "../../components/Reviews/Reviews";
 import { Route, NavLink, Switch } from 'react-router-dom';
 
 class MovieDetailsPage extends Component {
@@ -27,17 +29,25 @@ class MovieDetailsPage extends Component {
       <h1>страница с детальной информацией о кинофильме {this.props.match.params.movieId}</h1>
       
         <h2>{title}</h2>
-        <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
+        <div className={s.movieCard}>
+          <div>
+          <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
+        </div>
+        <div className={s.movieOverview}>
         <h2>Overview </h2>
         <p>{overview}</p>
         <h2>Vote Average</h2>
-        <p>{vote_average}</p>
+          <p>{vote_average}</p>
+        </div>
+        </div>
+    
         
-        <ul>
-      <li><NavLink to={`/movies/${movieId}/cast`}>CAST</NavLink></li>
-      <li><NavLink to={`/movies/${movieId}/reviews`} >REVIEWS</NavLink></li>
+        <ul className={s.linksPages}>
+      <li className={s.linksItem}><NavLink to={`/movies/${movieId}/cast`}>CAST</NavLink></li>
+      <li className={s.linksItem}><NavLink to={`/movies/${movieId}/reviews`} >REVIEWS</NavLink></li>
     </ul>
         <Route path="/movies/:movieId/cast" component={Cast} />
+        <Route path="/movies/:movieId/reviews" component={Reviews} />
        </>
     ) 
       
