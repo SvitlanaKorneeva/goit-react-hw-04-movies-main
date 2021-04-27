@@ -23,7 +23,8 @@ class MovieDetailsPage extends Component {
   }
   render() {
     const {title, overview, poster_path,vote_average, genres}= this.state;
-    const {movieId} = this.props.match.params;
+    const { movieId } = this.props.match.params;
+    console.log(this.props.match.path)
     return (
       <>
       <h1>страница с детальной информацией о кинофильме {this.props.match.params.movieId}</h1>
@@ -31,7 +32,7 @@ class MovieDetailsPage extends Component {
         <h2>{title}</h2>
         <div className={s.movieCard}>
           <div>
-          <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
+          <img src={`https://image.tmdb.org/t/p/w500/${poster_path}` } width="300" alt={title} />
         </div>
         <div className={s.movieOverview}>
         <h2>Overview </h2>
@@ -42,11 +43,14 @@ class MovieDetailsPage extends Component {
         </div>
     
         
-        <ul className={s.linksPages}>
-      <li className={s.linksItem}><NavLink to={`/movies/${movieId}/cast`}>CAST</NavLink></li>
-      <li className={s.linksItem}><NavLink to={`/movies/${movieId}/reviews`} >REVIEWS</NavLink></li>
-    </ul>
-        <Route path="/movies/:movieId/cast" component={Cast} />
+        <div className={s.linksPages}>
+      <NavLink className={s.linksItem} to={`/movies/${movieId}/cast`}>CAST</NavLink>
+      <NavLink className={s.linksItem} to={`/movies/${movieId}/reviews`} >REVIEWS</NavLink>
+    </div>
+        <Route
+          path={`${this.props.match.path}/cast`}
+          render={props => <Cast {...props} movie={this.state.movie} />}
+        />
         <Route path="/movies/:movieId/reviews" component={Reviews} />
        </>
     ) 
