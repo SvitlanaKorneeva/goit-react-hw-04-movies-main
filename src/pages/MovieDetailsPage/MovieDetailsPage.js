@@ -4,7 +4,9 @@ import Axios from 'axios';
 import Cast from '../../components/Cast/Cast';
 import Reviews from "../../components/Reviews/Reviews";
 import { Route, NavLink, Switch } from 'react-router-dom';
-import MovieItem from '../../components/MovieItem/MovieItem';
+import MovieItem from '../../components/MovieLIst/MovieLIst';
+import Button from '../../components/Button/Button';
+import routes from "../../routes";
 
 class MovieDetailsPage extends Component {
   state = {
@@ -22,12 +24,21 @@ class MovieDetailsPage extends Component {
     console.log(response.data);
     this.setState({ ...response.data });
   }
+
+  handleBack=() => {
+    const { location, history } = this.props;
+        if (location.state && location.state.from) {
+            return history.push(location.state.from);
+        } else (history.push(routes.home))
+  }
+
   render() {
     const {title, overview, poster_path,vote_average, genres}= this.state;
     const { movieId } = this.props.match.params;
     console.log(this.props.match.path)
     return (
       <>
+        <Button onClick={this.handleBack}/>
       <h1>страница с детальной информацией о кинофильме {this.props.match.params.movieId}</h1>
         <div className={s.movieCard}>
           <div>

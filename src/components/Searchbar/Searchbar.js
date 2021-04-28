@@ -36,7 +36,7 @@ handleSubmit = (e) => {
     className={s.SearchForm_input}
       type="text"
     //   autocomplete="off"
-    autofocus
+    // autofocus
     placeholder="Search movies"
         name="query"
         onChange={handleChange}

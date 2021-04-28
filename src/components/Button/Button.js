@@ -8,7 +8,7 @@ const Button = ({ onClick}) => (
     aria-label="Загрузить еще"
     className={s.Button}
     onClick={onClick}>
-    Load more
+    Go back
   </button>
 );
 

@@ -1,10 +1,11 @@
 import React from "react";
-import s from "./MovieItem.module.css";
+import s from "./MovieLIst.module.css";
 import { v4 as genId } from "uuid";
 import { Link } from 'react-router-dom';
 
 
-const MovieItem = ({ movies }) => {
+const MovieLIst = ({ movies }) => {
+  console.log(movies)
     return (
         <>
         <ul>
@@ -20,6 +21,6 @@ const MovieItem = ({ movies }) => {
     )
 }
 
-export default MovieItem
+export default MovieLIst
 
 // poster_path, title, overview, vote_average
