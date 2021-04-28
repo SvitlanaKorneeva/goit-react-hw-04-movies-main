@@ -29,12 +29,12 @@ class MovieDetailsPage extends Component {
     return (
       <>
       <h1>страница с детальной информацией о кинофильме {this.props.match.params.movieId}</h1>
-        <h2>{title}</h2>
         <div className={s.movieCard}>
           <div>
           <img src={`https://image.tmdb.org/t/p/w500/${poster_path}` } width="300" alt={title} />
         </div>
         <div className={s.movieOverview}>
+        <h2>{title}</h2>
         <h2>Overview </h2>
         <p>{overview}</p>
         <h2>Vote Average</h2>
@@ -42,7 +42,7 @@ class MovieDetailsPage extends Component {
         </div>
         </div>
     
-        
+        <h2>Additional information</h2>
         <div className={s.linksPages}>
       <NavLink className={s.linksItem} to={`/movies/${movieId}/cast`}>CAST</NavLink>
       <NavLink className={s.linksItem} to={`/movies/${movieId}/reviews`} >REVIEWS</NavLink>

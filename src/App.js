@@ -8,6 +8,8 @@ import MoviePage from "./pages/MoviesPage/MoviesPage";
 import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
 import NotFoundView from './pages/NotFoundView/NotFoundView';
 import { v4 as genId } from "uuid";
+import routs from "./routes";
+import AppBar from "./components/AppBar/AppBar";
 
 // import Modal from "./components/Modal/Modal";
 import Searchbar from "./components/Searchbar/Searchbar";
@@ -15,21 +17,18 @@ import Button from "./components/Button/Button";
 import Gallery from "./components/ImageGallery/ImageGallery";
 import LoaderSpinner from "./components/Loader/Loader";
 import getGalleryItems from "./services/pexelsApi";
+import routes from "./routes";
 const { getFetch } = getGalleryItems;
 
 
 const App = () => (
   <>
-    <ul>
-      <li><NavLink to="/" >Home</NavLink></li>
-      <li><NavLink to="/movies" >Movie</NavLink></li>
-      {/* <li><NavLink to="/movies/:movieId" >MovieDetail</NavLink></li> */}
-    </ul>
+    <AppBar/>
 
     <Switch>
-    <Route exact path="/" component={HomePage} />
-    <Route exact path="/movies" component={MoviePage} />
-    <Route path="/movies/:movieId" component={MovieDetailsPage} />
+    <Route exact path={routes.home} component={HomePage} />
+    <Route exact path={routes.movies} component={MoviePage} />
+    <Route path={routes.movieDetail} component={MovieDetailsPage} />
     <Route component={NotFoundView} />
     </Switch>
     
