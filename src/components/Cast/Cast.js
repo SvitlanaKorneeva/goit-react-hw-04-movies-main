@@ -18,14 +18,9 @@ class Cast extends Component {
       this.setState({ actors: response.data.cast});
   }
   render() {
-<<<<<<< HEAD
     const {cast}= this.state;
-    console.log(cast);
-    console.log(this.state.props.name);
   
-=======
-    
->>>>>>> 1823cd2746dfbce91bbe0a395d9cb46a5302defa
+  
     return (
       <>
       <h1>страница с актерами </h1>
