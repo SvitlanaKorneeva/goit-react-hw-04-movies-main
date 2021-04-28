@@ -4,6 +4,7 @@ import Axios from 'axios';
 import Cast from '../../components/Cast/Cast';
 import Reviews from "../../components/Reviews/Reviews";
 import { Route, NavLink, Switch } from 'react-router-dom';
+import MovieItem from '../../components/MovieItem/MovieItem';
 
 class MovieDetailsPage extends Component {
   state = {
@@ -28,7 +29,6 @@ class MovieDetailsPage extends Component {
     return (
       <>
       <h1>страница с детальной информацией о кинофильме {this.props.match.params.movieId}</h1>
-      
         <h2>{title}</h2>
         <div className={s.movieCard}>
           <div>

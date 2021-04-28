@@ -37,7 +37,7 @@ handleSubmit = (e) => {
       type="text"
     //   autocomplete="off"
     autofocus
-    placeholder="Search images and photos"
+    placeholder="Search movies"
         name="query"
         onChange={handleChange}
         value={queryValue}
