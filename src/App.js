@@ -23,7 +23,7 @@ const App = () => (
     <ul>
       <li><NavLink to="/" >Home</NavLink></li>
       <li><NavLink to="/movies" >Movie</NavLink></li>
-      <li><NavLink to="/movies/:movieId" >MovieDetail</NavLink></li>
+      {/* <li><NavLink to="/movies/:movieId" >MovieDetail</NavLink></li> */}
     </ul>
 
     <Switch>

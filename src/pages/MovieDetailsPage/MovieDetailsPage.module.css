@@ -1,0 +1,19 @@
+.movieCard {
+  display: flex;
+}
+
+.movieOverview {
+  margin-left: 20px;
+}
+
+.linksPages {
+  display: flex;
+  list-style: none;
+  text-align: center;
+}
+
+.linksItem {
+  margin-right: 50px;
+  font-size: large;
+  font-weight: bold;
+}
