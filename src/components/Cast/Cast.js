@@ -18,7 +18,8 @@ class Cast extends Component {
   render() {
     const {cast}= this.state;
     console.log(cast);
-    console.log(cast.this.name);
+    console.log(this.state.props.name);
+  
     return (
       <>
       <h1>страница с актерами </h1>
