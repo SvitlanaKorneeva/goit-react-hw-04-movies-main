@@ -25,20 +25,34 @@ class MovieDetailsPage extends Component {
     this.setState({ ...response.data });
   }
 
+  // handleBack=() => {
+  //   const { location, history } = this.props;
+  //       if (location.state && location.state.from) {
+  //           return history.push(location.state.from);
+  //       } else (history.push(routes.home))
+  // }
+
   handleBack=() => {
     const { location, history } = this.props;
-        if (location.state && location.state.from) {
-            return history.push(location.state.from);
-        } else (history.push(routes.home))
+    //     if (location.state && location.state.from) {
+    //         return history.push(location.state.from);
+    // } else (history.push(routes.home))
+
+    history.push(location?.state?.from || routes.home)
   }
 
   render() {
     const {title, overview, poster_path,vote_average, genres}= this.state;
     const { movieId } = this.props.match.params;
-    console.log(this.props.match.path)
+    // const { location } = this.props;
+    // console.log(location.state.from)т
+    // console.log(this.props.match.path)
     return (
       <>
         <Button onClick={this.handleBack}/>
+
+        {/* <Button onClick={() => this.props.history.push(location.state.from)}/> */}
+        
       <h1>страница с детальной информацией о кинофильме {this.props.match.params.movieId}</h1>
         <div className={s.movieCard}>
           <div>

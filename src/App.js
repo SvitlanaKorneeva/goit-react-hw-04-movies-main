@@ -1,36 +1,40 @@
-import React, { Component } from "react";
+import React, { Component, Suspense, lazy } from "react";
 
 import "./App.css";
 
 import { Route, NavLink, Switch } from 'react-router-dom';
-import HomePage from "./pages/HomePage/HomePage";
+// import HomePage from "./pages/HomePage/HomePage";
 import MoviePage from "./pages/MoviesPage/MoviesPage";
 import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
 import NotFoundView from './pages/NotFoundView/NotFoundView';
 import { v4 as genId } from "uuid";
-import routs from "./routes";
+import routes from "./routes";
+import LoaderSpinner from "./components/Loader/Loader";
 import AppBar from "./components/AppBar/AppBar";
 
+const HomePage = lazy(() =>
+  import('./pages/HomePage/HomePage.js' /* webpackChunkName: "home-view" */ ))
+
 // import Modal from "./components/Modal/Modal";
-import Searchbar from "./components/Searchbar/Searchbar";
-import Button from "./components/Button/Button";
-import Gallery from "./components/ImageGallery/ImageGallery";
-import LoaderSpinner from "./components/Loader/Loader";
-import getGalleryItems from "./services/pexelsApi";
-import routes from "./routes";
-const { getFetch } = getGalleryItems;
+// import Searchbar from "./components/Searchbar/Searchbar";
+// import Button from "./components/Button/Button";
+// import Gallery from "./components/ImageGallery/ImageGallery";
+// import getGalleryItems from "./services/pexelsApi";
+// const { getFetch } = getGalleryItems;
 
 
 const App = () => (
   <>
     <AppBar/>
 
-    <Switch>
+    <Suspense fallback={<LoaderSpinner/>}>
+       <Switch>
     <Route exact path={routes.home} component={HomePage} />
     <Route exact path={routes.movies} component={MoviePage} />
     <Route path={routes.movieDetail} component={MovieDetailsPage} />
     <Route component={NotFoundView} />
     </Switch>
+   </Suspense>
     
    </>
   
