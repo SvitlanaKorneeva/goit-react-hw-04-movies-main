@@ -6,8 +6,7 @@ import Axios from 'axios';
 class MoviePage extends Component {
   state ={
     query: "",
-    movies: [],
-     
+    movies: [],    
   }
 
   // async componentDidMount() {
@@ -20,7 +19,6 @@ class MoviePage extends Component {
   //   console.log(response.data.results);
   //   this.setState({query: response.data.results} );
   //     }
-  
   async componentDidUpdate(prevProps, prevState) {
     const { query } = this.state;
     // console.log(query)

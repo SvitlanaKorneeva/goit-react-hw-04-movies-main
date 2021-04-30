@@ -1,19 +1,22 @@
-import React, { Component, Suspense, lazy } from "react";
-
 import "./App.css";
-
-import { Route, NavLink, Switch } from 'react-router-dom';
-// import HomePage from "./pages/HomePage/HomePage";
-import MoviePage from "./pages/MoviesPage/MoviesPage";
-import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
-import NotFoundView from './pages/NotFoundView/NotFoundView';
-import { v4 as genId } from "uuid";
+import React, { Suspense, lazy } from "react";
+import { Route,Switch } from 'react-router-dom';
 import routes from "./routes";
+// import HomePage from "./pages/HomePage/HomePage";
+// import MoviePage from "./pages/MoviesPage/MoviesPage";
+// import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
+import NotFoundView from './pages/NotFoundView/NotFoundView';
 import LoaderSpinner from "./components/Loader/Loader";
 import AppBar from "./components/AppBar/AppBar";
 
 const HomePage = lazy(() =>
   import('./pages/HomePage/HomePage.js' /* webpackChunkName: "home-view" */ ))
+
+const MoviePage = lazy(() =>
+  import('./pages/MoviesPage/MoviesPage.js' /* webpackChunkName: "movie-view" */ ))
+
+const MovieDetailsPage = lazy(() =>
+  import('./pages/MovieDetailsPage/MovieDetailsPage.js' /* webpackChunkName: "movie-details" */ ))
 
 // import Modal from "./components/Modal/Modal";
 // import Searchbar from "./components/Searchbar/Searchbar";

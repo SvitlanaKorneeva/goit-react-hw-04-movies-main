@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import s from "./HomePage.module.css";
 // import getFetch from '../../services/filmApi';
 import Axios from 'axios';
+import MoviePreview from "../../components/MoviePreview/MoviePreview";
 
 class HomePage extends Component {
     state = {
@@ -21,6 +22,7 @@ class HomePage extends Component {
         return (
             <>
             <h1>Trending today</h1>
+            <MoviePreview/>
             <ul className={s.movieList}>
                     {this.state.movieList.map(movie => {
                const imgUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
